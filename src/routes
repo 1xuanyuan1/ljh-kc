@@ -1,0 +1,51 @@
+/**
+ * Created by liujie on 12/19/16.
+ */
+
+const routes = [{
+  path: '/',
+  redirect: '/index'
+}, {
+  path: '/index',
+  name: 'index',
+  component (resolve) {
+    require.ensure(['./views/search/Index.vue'], () => {
+      resolve(require('./views/search/Index.vue'))
+    })
+  },
+  meta: {
+    title: '量江湖ASM智投搜索首页'
+  }
+}, {
+  path: '/results',
+  name: 'results',
+  component (resolve) {
+    require.ensure(['./views/search/SearchResult.vue'], () => {
+      resolve(require('./views/search/SearchResult.vue'))
+    })
+  },
+  meta: {
+    title: '搜索结果'
+  }
+}, {
+  path: '/more',
+  name: 'more',
+  component (resolve) {
+    require.ensure(['./views/search/More.vue'], () => {
+      resolve(require('./views/search/More.vue'))
+    })
+  },
+  meta: {
+    title: '竞价广告主列表'
+  }
+}, {
+  path: '*',
+  redirect: '/'
+}]
+
+export default routes
+
+
+
+// WEBPACK FOOTER //
+// ./src/routes.js
